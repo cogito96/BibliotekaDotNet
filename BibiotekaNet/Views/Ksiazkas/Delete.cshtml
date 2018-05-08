@@ -1,0 +1,81 @@
+﻿@model BibiotekaNet.ViewModel.Ksiazka.SzczegolyKsiazkaVM
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Ksiazka</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.Tytuł)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.Tytuł)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.DataWydania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.DataWydania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.DataDodaniaDoSystemu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.DataDodaniaDoSystemu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.NazwaKategorii)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.NazwaKategorii)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.ImieAutor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.ImieAutor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.NazwiskoAutor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.NazwiskoAutor)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
