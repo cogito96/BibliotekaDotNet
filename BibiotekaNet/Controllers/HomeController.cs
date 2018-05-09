@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibiotekaNet.Biznesowa_Warstwa;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace BibiotekaNet.Controllers
     {
         public ActionResult Index()
         {
+            KoszykBL koszykBL = new KoszykBL();
+            koszykBL.DodajDoKoszyka();
             return View();
         }
 

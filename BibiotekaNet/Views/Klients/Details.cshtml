@@ -1,0 +1,99 @@
+﻿@model BibiotekaNet.ViewModel.Klient.SzczegolyKlientVM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Klient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.ImieKlienta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.ImieKlienta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.NazwiskoKlienta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.NazwiskoKlienta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.MiastoKlienta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.MiastoKlienta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.UlicaKlienta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.UlicaKlienta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.EmailKlienta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.EmailKlienta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.NumerTelefonuKlienta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.NumerTelefonuKlienta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.LoginKlient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.LoginKlient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.HasloKlienta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.HasloKlienta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.PESEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.PESEL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.klient.PotwierdzenieRejestracji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.klient.PotwierdzenieRejestracji)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.klient.KlientID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

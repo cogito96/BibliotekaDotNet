@@ -20,7 +20,7 @@ namespace BibiotekaNet.Controllers
         public ActionResult Index()
         {
             KsiazkaBL ksiazkaBL = new KsiazkaBL();
-            IndexVM indexVM = new IndexVM();
+            IndexKsiazkaVM indexVM = new IndexKsiazkaVM();
             indexVM.listaKsiazek = ksiazkaBL.GetListaKsiazek();
             return View(indexVM);
         }
@@ -54,17 +54,17 @@ namespace BibiotekaNet.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DodajKsiazke(KsiazkaEM ksiazka)
+        public ActionResult DodajKsiazke(DodajKsiazkeVM ksiazkaVM)
         {
-            ksiazka.DataDodaniaDoSystemu = DateTime.Now.Date;
+            ksiazkaVM.ksiazka.DataDodaniaDoSystemu = DateTime.Now.Date;
             if (ModelState.IsValid)
             {
                 KsiazkaBL ksiazkaBL = new KsiazkaBL();
-                ksiazkaBL.DodajKsiazke(ksiazka);
+                ksiazkaBL.DodajKsiazke(ksiazkaVM.ksiazka);
                 return RedirectToAction("Index");
             }
 
-            return View(ksiazka);
+            return View(ksiazkaVM);
         }
 
         // GET: Ksiazkas/Edit/5

@@ -1,0 +1,87 @@
+﻿@model BibiotekaNet.ViewModel.Klient.IndexKlientVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Imie")
+        </th>
+        <th>
+            @Html.DisplayName("Nazawisko")
+        </th>
+        <th>
+            @Html.DisplayName("Miasto")
+        </th>
+        <th>
+            @Html.DisplayName("Ulica")
+        </th>
+        <th>
+            @Html.DisplayName("Emial")
+        </th>
+        <th>
+            @Html.DisplayName("Numer telefonu")
+        </th>
+        <th>
+            @Html.DisplayName("Login")
+        </th>
+        <th>
+            @Html.DisplayName("Haslo")
+        </th>
+        <th>
+            @Html.DisplayName("PESEL")
+        </th>
+        <th>
+            @Html.DisplayName("Potwierdzenie rejestracji")
+        </th>
+    </tr>
+
+@foreach (var item in Model.listaKlientow) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImieKlienta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NazwiskoKlienta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiastoKlienta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UlicaKlienta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailKlienta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumerTelefonuKlienta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoginKlient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasloKlienta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PESEL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PotwierdzenieRejestracji)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.KlientID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.KlientID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.KlientID })
+        </td>
+    </tr>
+}
+
+</table>

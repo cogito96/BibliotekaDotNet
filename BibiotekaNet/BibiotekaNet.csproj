@@ -148,8 +148,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Biznesowa Warstwa\KlientBL.cs" />
+    <Compile Include="Biznesowa Warstwa\KoszykBL.cs" />
     <Compile Include="Biznesowa Warstwa\KsiazkaBL.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KlientsController.cs" />
     <Compile Include="Controllers\KsiazkasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,8 +174,13 @@
     <Compile Include="Models\WypozyczenieEM.cs" />
     <Compile Include="Models\Wypozyczenie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Home\IndexHomeVM.cs" />
+    <Compile Include="ViewModel\Klient\DodajKlientaVM.cs" />
+    <Compile Include="ViewModel\Klient\EdytujKlientaVM.cs" />
+    <Compile Include="ViewModel\Klient\IndexKlientVM.cs" />
+    <Compile Include="ViewModel\Klient\SzczegolyKlientVM.cs" />
     <Compile Include="ViewModel\Ksiazka\EdytujKsiazkeVM.cs" />
-    <Compile Include="ViewModel\Ksiazka\IndexVM.cs" />
+    <Compile Include="ViewModel\Ksiazka\IndexKsiazkaVM.cs" />
     <Compile Include="ViewModel\Ksiazka\DodajKsiazkeVM.cs" />
     <Compile Include="ViewModel\Ksiazka\SzczegolyKsiazkaVM.cs" />
   </ItemGroup>
@@ -222,6 +230,11 @@
     <Content Include="Views\Ksiazkas\Details.cshtml" />
     <Content Include="Views\Ksiazkas\Edit.cshtml" />
     <Content Include="Views\Ksiazkas\Index.cshtml" />
+    <Content Include="Views\Klients\Create.cshtml" />
+    <Content Include="Views\Klients\Delete.cshtml" />
+    <Content Include="Views\Klients\Details.cshtml" />
+    <Content Include="Views\Klients\Edit.cshtml" />
+    <Content Include="Views\Klients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805081833250_baza danych.resx">
