@@ -1,0 +1,23 @@
+﻿@model BibiotekaNet.ViewModel.Koszyk.IndexKoszykVM
+@{
+    ViewBag.Title = "MojKoszyk";
+}
+@using BibiotekaNet.Models
+
+<h2>MojKoszyk</h2>
+@if (ViewBag.informacja != null)
+{
+    <strong>@ViewBag.informacja </strong>
+}
+
+@foreach (var item in Model.ksiazkas)
+{
+    @item.Tytuł;
+    @Html.ActionLink("Usun", "UsunZKoszyka", new { id = item.KsiazkaID })
+    <br />
+}
+@Html.ActionLink("Wroc do strony glownej", "Aktualnosci", "StronaGlowna");
+
+@Html.ActionLink("Wypozycz", "Wypozycz", "Wypozyczenie");
+
+@Html.ActionLink("Usun Wszysko", "OproznijKosz", "KoszykZKsiazkami");

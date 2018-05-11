@@ -148,12 +148,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Biznesowa Warstwa\AppBL.cs" />
     <Compile Include="Biznesowa Warstwa\KlientBL.cs" />
     <Compile Include="Biznesowa Warstwa\KoszykBL.cs" />
     <Compile Include="Biznesowa Warstwa\KsiazkaBL.cs" />
+    <Compile Include="Biznesowa Warstwa\WypozyczenieBL.cs" />
+    <Compile Include="Controllers\AutoryzacjaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KlientsController.cs" />
+    <Compile Include="Controllers\KoszykController.cs" />
     <Compile Include="Controllers\KsiazkasController.cs" />
+    <Compile Include="Controllers\WypozyczenieController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,25 +169,31 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DBKontekst.cs" />
     <Compile Include="Models\Egzemplarz.cs" />
+    <Compile Include="Models\EgzemplarzStanKsiazkiEnum.cs" />
     <Compile Include="Models\Klient.cs" />
     <Compile Include="Models\KlientEM.cs" />
     <Compile Include="Models\Ksiazka.cs" />
     <Compile Include="Models\KsiazkaEM.cs" />
     <Compile Include="Models\Pracownik.cs" />
     <Compile Include="Models\PracownikEM.cs" />
-    <Compile Include="Models\EgzemplarzStatusWypozyczeniaEnum.cs" />
+    <Compile Include="Models\TypUzytkownikaEnum.cs" />
+    <Compile Include="Models\WypozyczenieStatusWypozyczeniaEnum.cs" />
     <Compile Include="Models\WypozyczenieEM.cs" />
     <Compile Include="Models\Wypozyczenie.cs" />
+    <Compile Include="MyRoleProvider\LogowanieRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Autoryzacja\LogowanieVM.cs" />
     <Compile Include="ViewModel\Home\IndexHomeVM.cs" />
     <Compile Include="ViewModel\Klient\DodajKlientaVM.cs" />
     <Compile Include="ViewModel\Klient\EdytujKlientaVM.cs" />
     <Compile Include="ViewModel\Klient\IndexKlientVM.cs" />
     <Compile Include="ViewModel\Klient\SzczegolyKlientVM.cs" />
+    <Compile Include="ViewModel\Koszyk\IndexKoszykVM.cs" />
     <Compile Include="ViewModel\Ksiazka\EdytujKsiazkeVM.cs" />
     <Compile Include="ViewModel\Ksiazka\IndexKsiazkaVM.cs" />
     <Compile Include="ViewModel\Ksiazka\DodajKsiazkeVM.cs" />
     <Compile Include="ViewModel\Ksiazka\SzczegolyKsiazkaVM.cs" />
+    <Compile Include="ViewModel\Wypozyczenie\KlientWpozyczenieVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database1.mdf" />
@@ -235,6 +246,10 @@
     <Content Include="Views\Klients\Details.cshtml" />
     <Content Include="Views\Klients\Edit.cshtml" />
     <Content Include="Views\Klients\Index.cshtml" />
+    <Content Include="Views\Koszyk\Index.cshtml" />
+    <Content Include="Views\Wypozyczenie\Index.cshtml" />
+    <Content Include="Views\Autoryzacja\Logowanie.cshtml" />
+    <Content Include="Views\Autoryzacja\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805081833250_baza danych.resx">

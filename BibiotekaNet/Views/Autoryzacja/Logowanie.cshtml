@@ -1,0 +1,25 @@
+﻿@model BibiotekaNet.ViewModel.Autoryzacja.LogowanieVM
+@{
+    ViewBag.Title = "Logowanie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Logowanie</h2>
+
+<p>
+    @Html.ValidationMessage("CredentialError")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.login)
+    @Html.EditorFor(model => model.login)
+
+    @Html.LabelFor(model => model.haslo)
+    @Html.EditorFor(model => model.haslo)
+
+    @Html.LabelFor(model => model.typUzytkownika)
+    @Html.EnumDropDownListFor(model => model.typUzytkownika)
+
+    <input type="submit" value="Zaloguj" />
+}

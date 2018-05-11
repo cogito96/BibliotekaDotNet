@@ -30,7 +30,7 @@ namespace BibiotekaNet.Biznesowa_Warstwa
             }
             else
                 egzemplarz.KsiazkaID = szukajTakiejKsiazki.KsiazkaID;
-            egzemplarz.StanKsiazki = EgzemplarzStatusWypozyczeniaEnum.MAGAZYN.ToString();
+            egzemplarz.StanKsiazki = EgzemplarzStanKsiazkiEnum.MAGAZYN.ToString();
             db.Egzemplarze.Add(egzemplarz);
             db.SaveChanges();
         }

@@ -1,4 +1,5 @@
 ﻿using BibiotekaNet.Biznesowa_Warstwa;
+using BibiotekaNet.ViewModel.Ksiazka;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,10 @@ namespace BibiotekaNet.Controllers
     {
         public ActionResult Index()
         {
-            KoszykBL koszykBL = new KoszykBL();
-            koszykBL.DodajDoKoszyka();
-            return View();
+            KsiazkaBL ksiazkaBL = new KsiazkaBL();
+            IndexKsiazkaVM indexVM = new IndexKsiazkaVM();
+            indexVM.listaKsiazek = ksiazkaBL.GetListaKsiazek();
+            return View(indexVM);
         }
 
         public ActionResult About()

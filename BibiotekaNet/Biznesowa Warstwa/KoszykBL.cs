@@ -11,10 +11,10 @@ namespace BibiotekaNet.Biznesowa_Warstwa
         DBKontekst db = new DBKontekst();
 
 
-        public void DodajDoKoszyka(int id = 2)
+        public void DodajDoKoszyka(int id)
         {
             var session = HttpContext.Current.Session;
-            var dodanyEgzemplarz = db.Egzemplarze.Where(k => k.Ksiazka.KsiazkaID == id && k.StanKsiazki == "magazyn").FirstOrDefault();
+            var dodanyEgzemplarz = db.Egzemplarze.Where(k => k.Ksiazka.KsiazkaID == id && k.StanKsiazki == EgzemplarzStanKsiazkiEnum.MAGAZYN.ToString()).FirstOrDefault();
             if(dodanyEgzemplarz != null)
             {
                 if (session["koszyk"] == null)
@@ -31,19 +31,29 @@ namespace BibiotekaNet.Biznesowa_Warstwa
                     session["koszyk"] = wKoszyku;
                     session["iloscKsiazekWKoszyku"] = IloscElementowWKoszyku() + 1;
                 }
+                //dodanyEgzemplarz.StanKsiazki = EgzemplarzStatusWypozyczeniaEnum.POLKA.ToString();
             }
         }
 
         public int IloscElementowWKoszyku ()
         {
             var session = HttpContext.Current.Session;
-            return (int)session["iloscKsiazekWKoszyku"];
+            return session["iloscKsiazekWKoszyku"] != null ? (int)session["iloscKsiazekWKoszyku"] : 0;
         }
 
-        public List<Egzemplarz> GetKoszyk()
+        public List<KsiazkaEM> GetKoszyk()
         {
             var session = HttpContext.Current.Session;
-            return (List<Egzemplarz>)session["koszyk"];
+            KsiazkaBL ksiazkaBL = new KsiazkaBL();
+            List<KsiazkaEM> listaKsiazekWKoszyku = new List<KsiazkaEM>();
+            if(IloscElementowWKoszyku() != 0)
+            {
+                foreach (var item in (List<Egzemplarz>)session["koszyk"])
+                {
+                    listaKsiazekWKoszyku.Add(ksiazkaBL.GetKsiazka(item.KsiazkaID));
+                }
+            }
+            return listaKsiazekWKoszyku;
         }
 
         public void OproznijKosz()
@@ -58,14 +68,14 @@ namespace BibiotekaNet.Biznesowa_Warstwa
             }
         }
 
-        public void UsunZKoszyka(Egzemplarz usuwanyEgzemplarz)
+        public void UsunZKoszyka(int id)
         {
             var session = HttpContext.Current.Session;
             List<Egzemplarz> wKoszyku = (List<Egzemplarz>)session["koszyk"];
 
-            //         usuwanyEgzemplarz.StanKsiazki = "magazyn";
+            //usuwanyEgzemplarz.StanKsiazki = EgzemplarzStatusWypozyczeniaEnum.MAGAZYN.ToString() ;
 
-            wKoszyku.RemoveAll(k => k.EgzemplarzID == usuwanyEgzemplarz.EgzemplarzID);
+            wKoszyku.RemoveAll(k => k.KsiazkaID == id);
             session["koszyk"] = wKoszyku;
             session["iloscKsiazekWKoszyku"] = IloscElementowWKoszyku() - 1;
 

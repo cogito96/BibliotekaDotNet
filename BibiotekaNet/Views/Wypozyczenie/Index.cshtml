@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BibiotekaNet.ViewModel.Wypozyczenie.KlientWpozyczenieVM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.wypozyczenie.Egzemplarz.Ksiazka.Tytuł)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wypozyczenie.DataWypozyczenia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wypozyczenie.DataZwrotu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wypozyczenie.StatusWypozyczenia)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr style="background-color:@item.kolorStatusWypozyczenia">
+            <th>
+                @Html.DisplayFor(model => item.wypozyczenie.Egzemplarz.Ksiazka.Tytuł)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.wypozyczenie.DataWypozyczenia)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.wypozyczenie.DataZwrotu)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.wypozyczenie.StatusWypozyczenia)
+            </th>
+        </tr>
+        }
+    </tbody>
+</table>
