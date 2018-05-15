@@ -3,23 +3,37 @@
     ViewBag.Title = "Logowanie";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/MojCSS.css" rel="stylesheet" />
 
-<h2>Logowanie</h2>
 
-<p>
-    @Html.ValidationMessage("CredentialError")
-</p>
 
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.login)
-    @Html.EditorFor(model => model.login)
+ 
+<div class="modal-dialog">
+    <div class="loginmodal-container">
+        <h1>Logowanie</h1><br>
+        <p style="color:red">
+             @Html.ValidationMessage("Informacja")
+        </p>
+        @using (Html.BeginForm())
+        { 
+            @Html.LabelFor(model => model.login) 
+            @Html.EditorFor(model => model.login)
+            @Html.ValidationMessageFor(model => model.login, "", new { @class = "text-danger" })
+            
+            
+            @Html.LabelFor(model => model.haslo)
+            @Html.PasswordFor(model => model.haslo)
+            @Html.ValidationMessageFor(model => model.haslo, "", new { @class = "text-danger" })
+            
 
-    @Html.LabelFor(model => model.haslo)
-    @Html.EditorFor(model => model.haslo)
+            @Html.LabelFor(model => model.typUzytkownika)
+            @Html.EnumDropDownListFor(model => model.typUzytkownika, new { @class = "dropdownlist" })
+            <input type="submit" value="Zaloguj" class="loginmodal-submit" />
+        }
 
-    @Html.LabelFor(model => model.typUzytkownika)
-    @Html.EnumDropDownListFor(model => model.typUzytkownika)
-
-    <input type="submit" value="Zaloguj" />
-}
+        <div class="login-help">
+            <a href="@Url.Action("Rejestracja", "Home")">Stwórz konto</a>
+        </div>
+    </div>
+</div>
+   

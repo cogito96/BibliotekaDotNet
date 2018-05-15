@@ -17,11 +17,19 @@ namespace BibiotekaNet.Controllers
             List<KlientWpozyczenieVM> wypozyczeniaVM = new List<KlientWpozyczenieVM>();
             if(id == null)
             {
-                id = 1;
-                wypozyczenieBL.GetHistoriaWypozyczenKlienta((int)id).ForEach(x => { wypozyczeniaVM.Add(new KlientWpozyczenieVM(x)); }) ;
+                KlientBL klientBL = new KlientBL();
+                wypozyczenieBL.GetHistoriaWypozyczenKlienta(klientBL.GetZalogowanyKlient().KlientID).ForEach(x => { wypozyczeniaVM.Add(new KlientWpozyczenieVM(x)); }) ;
+                return  View(wypozyczeniaVM);
             }
             wypozyczenieBL.GetHistoriaWypozyczenKlienta((int)id).ForEach(x => { wypozyczeniaVM.Add(new KlientWpozyczenieVM(x)); }) ;
             return View(wypozyczeniaVM);
+        }
+        public ActionResult WypozyczKsiazkiZKoszyka()
+        {
+            WypozyczenieBL wypozyczenieBL = new WypozyczenieBL();
+            wypozyczenieBL.Wypozycz();
+            //return RedirectToAction("Index", "Koszyk");
+            return RedirectToAction("Index");
         }
     }
 }

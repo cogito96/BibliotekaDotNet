@@ -12,6 +12,7 @@ using BibiotekaNet.ViewModel.Klient;
 
 namespace BibiotekaNet.Controllers
 {
+    [Authorize(Roles = "PRACOWNIK")]
     public class KlientsController : Controller
     {
         private DBKontekst db = new DBKontekst();

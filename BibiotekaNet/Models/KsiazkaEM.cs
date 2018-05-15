@@ -18,6 +18,7 @@ namespace BibiotekaNet.Models
             NazwaKategorii = ksiazka.NazwaKategorii;
             ImieAutor = ksiazka.ImieAutor;
             NazwiskoAutor = ksiazka.NazwiskoAutor;
+            Egzemplarze = ksiazka.Egzemplarze;
         }
 
 

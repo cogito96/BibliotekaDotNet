@@ -49,9 +49,12 @@ namespace BibiotekaNet.MyRoleProvider
 
             var session = HttpContext.Current.Session;
             string[] rezultat = {""};
-            if (session["TypUzytkownika"].ToString() == TypUzytkownikaEnum.PRACOWNIK.ToString())
+            if (session["TypUzytkownika"] != null)
             {
-                rezultat = new string[] { TypUzytkownikaEnum.PRACOWNIK.ToString() };
+                if (session["TypUzytkownika"].ToString() == TypUzytkownikaEnum.PRACOWNIK.ToString())
+                {
+                    rezultat = new string[] { TypUzytkownikaEnum.PRACOWNIK.ToString() };
+                }
             }
             return rezultat;
         }

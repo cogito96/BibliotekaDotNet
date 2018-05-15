@@ -8,7 +8,7 @@ namespace BibiotekaNet.ViewModel.Home
 {
     public class IndexHomeVM
     {
-        public string LoginKlienta { get; set; }
         public List<KsiazkaEM> listaKsiazek { get; set; }
+
     }
 }

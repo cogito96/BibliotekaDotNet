@@ -46,8 +46,7 @@ namespace BibiotekaNet.Controllers
         // GET: Ksiazkas/Create
         public ActionResult DodajKsiazke()
         {
-            DodajKsiazkeVM dodajKsiazkeVM = new DodajKsiazkeVM();
-            return View(dodajKsiazkeVM);
+            return View();
         }
 
         // POST: Ksiazkas/Create
@@ -64,7 +63,6 @@ namespace BibiotekaNet.Controllers
                 ksiazkaBL.DodajKsiazke(ksiazkaVM.ksiazka);
                 return RedirectToAction("Index");
             }
-
             return View(ksiazkaVM);
         }
 

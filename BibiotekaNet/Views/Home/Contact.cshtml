@@ -5,13 +5,17 @@
 <h3>@ViewBag.Message</h3>
 
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
+    xxxxxxxxxxxxxx<br />
+    BIałystok, 143-349<br />
     <abbr title="Phone">P:</abbr>
-    425.555.0100
+    111 121 313
 </address>
 
+<p style="color:green">
+    @TempData["Informacja"]
+</p>
+
 <address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    <strong>Napisz do nas: </strong>@Html.ActionLink("Wyslij wiadomosc", "WyslijWiadomosc")<br />
+    <span>wiadomosc jest anonimowa</span>
 </address>

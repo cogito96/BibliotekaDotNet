@@ -1,4 +1,3 @@
-C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.csprojResolveAssemblyReference.cache
 C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.csproj.CoreCompileInputs.cache
 C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\bin\ApplicationInsights.config
 C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\bin\BibiotekaNet.dll.config
@@ -95,3 +94,5 @@ C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.dll
 C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.pdb
 C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.Migrations.bazadanych.resources
 C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.csproj.GenerateResource.cache
+C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.Migrations.aa.resources
+C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.csprojResolveAssemblyReference.cache

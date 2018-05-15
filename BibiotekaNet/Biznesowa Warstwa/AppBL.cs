@@ -1,8 +1,10 @@
 ﻿using BibiotekaNet.Models;
+using BibiotekaNet.ViewModel.Autoryzacja;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 
 namespace BibiotekaNet.Biznesowa_Warstwa
 {
@@ -29,5 +31,13 @@ namespace BibiotekaNet.Biznesowa_Warstwa
             }
             return false;
         }
+
+        public void Zaloguj(LogowanieVM vm)
+        {
+            var session = HttpContext.Current.Session;
+            session["TypUzytkownika"] = vm.typUzytkownika;
+            FormsAuthentication.SetAuthCookie(vm.login, false);
+        }
+
     }
 }

@@ -2,22 +2,52 @@
 @{
     ViewBag.Title = "MojKoszyk";
 }
-@using BibiotekaNet.Models
 
-<h2>MojKoszyk</h2>
+<h2>Index</h2>
+
+
+
 @if (ViewBag.informacja != null)
 {
     <strong>@ViewBag.informacja </strong>
 }
-
-@foreach (var item in Model.ksiazkas)
+else
 {
-    @item.Tytuł;
-    @Html.ActionLink("Usun", "UsunZKoszyka", new { id = item.KsiazkaID })
-    <br />
+    <table class="table">
+
+        @foreach (var item in Model.ksiazkas)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tytuł)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataWydania)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NazwaKategorii)
+                </td>
+                <td>
+                    @Html.ActionLink("Usun", "UsunZKoszyka", new { id = item.KsiazkaID })
+                </td>
+            </tr>
+        }
+    </table>
+    <span>
+        @Html.ActionLink("Wroc do strony glownej", "Aktualnosci", "StronaGlowna")
+    </span>
+    <span>
+        @Html.ActionLink("Wypozycz", "WypozyczKsiazkiZKoszyka", "Wypozyczenie")
+    </span>
+    <span>
+        @Html.ActionLink("Usun Wszysko", "OproznijKosz", "KoszykZKsiazkami")
+    </span>
+
+    
+
+    
 }
-@Html.ActionLink("Wroc do strony glownej", "Aktualnosci", "StronaGlowna");
 
-@Html.ActionLink("Wypozycz", "Wypozycz", "Wypozyczenie");
-
-@Html.ActionLink("Usun Wszysko", "OproznijKosz", "KoszykZKsiazkami");

@@ -1,0 +1,65 @@
+﻿@model BibiotekaNet.ViewModel.Ksiazka.IndexKsiazkaVM
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Baza Ksiazek</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Tytul")
+        </th>
+        <th>
+            @Html.DisplayName("Opis")
+        </th>
+        <th>
+            @Html.DisplayName("Data wydania")
+        </th>
+        <th>
+            @Html.DisplayName("Data dodania do systemu")
+        </th>
+        <th>
+            @Html.DisplayName("Kategoria")
+        </th>
+        <th>
+            @Html.DisplayName("Imie Autora")
+        </th>
+        <th>
+            @Html.DisplayName("Nazwisko Autora")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.listaKsiazek)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tytuł)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataWydania)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDodaniaDoSystemu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazwaKategorii)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImieAutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazwiskoAutor)
+            </td>
+            <td>
+                @Html.ActionLink( "Zobacz szczegoly", "SzczególyKsiazki",new { id = item.KsiazkaID })
+            </td>
+        </tr>
+    }
+
+</table>

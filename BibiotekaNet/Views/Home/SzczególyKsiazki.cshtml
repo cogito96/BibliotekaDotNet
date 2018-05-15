@@ -1,0 +1,75 @@
+﻿@model BibiotekaNet.ViewModel.Home.SzczegółyKsiazkiHomeVM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div id="contener">
+    <h4>Ksiazka</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.Tytuł)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.Tytuł)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.DataWydania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.DataWydania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.NazwaKategorii)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.NazwaKategorii)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.ImieAutor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.ImieAutor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka.NazwiskoAutor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka.NazwiskoAutor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Wroc", "Index")
+ 
+    @if (Model.CzyKsiazkaJestDostepna)
+    {
+        <a href="@Url.Action("DodajDoKoszyka" , "Koszyk" , new { id = Model.ksiazka.KsiazkaID})" class="category">doadajDoKoszyka </a>
+    }
+    else
+    {
+        <a>Ksiazki nie ma na stanie</a>
+    }
+</p>

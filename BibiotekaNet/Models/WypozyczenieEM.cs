@@ -16,6 +16,8 @@ namespace BibiotekaNet.Models
             StatusWypozyczenia = wypozycznie.StatusWypozyczenia;
             EgzemplarzID = wypozycznie.EgzemplarzID;
             KlientID = wypozycznie.KlientID;
+
+            Egzemplarz = wypozycznie.Egzemplarz;
         }
     }
 }

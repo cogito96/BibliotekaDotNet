@@ -28,5 +28,6 @@ namespace BibiotekaNet.Models
 
         public string NazwiskoAutor { get; set; }
 
+        public virtual ICollection<Egzemplarz> Egzemplarze { get; set; }
     }
 }

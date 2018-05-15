@@ -26,19 +26,19 @@ namespace BibiotekaNet.Controllers
         [HttpPost]
         public ActionResult Logowanie(LogowanieVM vm, string ReturnUrl)
         {
+            FormsAuthentication.SignOut();
             AppBL appBL = new AppBL();
             if (appBL.isValidAutoryzacja(vm.login, vm.haslo, vm.typUzytkownika))
             {
-                Session["TypUzytkownika"] = vm.typUzytkownika;
-                FormsAuthentication.SetAuthCookie(vm.login, false);
+                appBL.Zaloguj(vm);
                 return ReturnUrl != null ? Redirect(ReturnUrl) : Redirect("Index");
             }
 
-            ModelState.AddModelError("CredentialError", "Niepoprawna nazwa użytkownika lub hasło");
+            ModelState.AddModelError("Informacja", "Niepoprawna nazwa użytkownika lub hasło");
             return View(vm);
         }
 
-            public ActionResult Logout()
+        public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Autoryzacja");

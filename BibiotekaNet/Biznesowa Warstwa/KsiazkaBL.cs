@@ -51,5 +51,15 @@ namespace BibiotekaNet.Biznesowa_Warstwa
             KsiazkaEM ksiazka = new KsiazkaEM(db.Ksiazki.Find(id));
             return ksiazka;
         }
+
+        public bool DostepnoscKsiazki(int id)
+        {
+            KsiazkaEM ksiazka = GetKsiazka(id);
+            if (ksiazka.Egzemplarze.Where(e => e.StanKsiazki == EgzemplarzStanKsiazkiEnum.MAGAZYN.ToString()).Count() != 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

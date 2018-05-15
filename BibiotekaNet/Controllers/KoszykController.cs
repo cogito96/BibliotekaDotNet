@@ -32,7 +32,6 @@ namespace BibiotekaNet.Controllers
             koszykBL.OproznijKosz();
             return RedirectToAction("Index");
         }
-        [Authorize]
         public ActionResult Index()
         {
             KoszykBL koszykBL = new KoszykBL();

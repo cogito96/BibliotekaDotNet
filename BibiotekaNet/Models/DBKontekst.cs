@@ -17,5 +17,7 @@ namespace BibiotekaNet.Models
         public DbSet<Klient> Klienci { get; set; }
         public DbSet<Pracownik> Pracownicy { get; set; }
         public DbSet<Wypozyczenie> Wypozyczenia { get; set; }
+
+        public System.Data.Entity.DbSet<BibiotekaNet.Models.KlientEM> Klients { get; set; }
     }
 }

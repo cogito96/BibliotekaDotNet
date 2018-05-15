@@ -39,5 +39,17 @@ namespace BibiotekaNet.Biznesowa_Warstwa
             KlientEM klient = new KlientEM(db.Klienci.Find(id));
             return klient;
         }
+
+        public KlientEM GetZalogowanyKlient()
+        {
+            var session = HttpContext.Current.Session;
+            if(session["TypUzytkownika"].ToString() == TypUzytkownikaEnum.KLIENT.ToString())
+            {
+                DBKontekst db = new DBKontekst();
+                KlientEM klientEM = new KlientEM(db.Klienci.Where(model => model.LoginKlient == HttpContext.Current.User.Identity.Name).FirstOrDefault());
+                return klientEM;
+            }
+            return null;
+        }
     }
 }

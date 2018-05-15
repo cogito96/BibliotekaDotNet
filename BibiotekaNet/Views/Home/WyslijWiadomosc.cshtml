@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "WyslijWiadomosc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>WyslijWiadomosc</h2>
+<link href="~/Content/MojCSS.css" rel="stylesheet" />
+<div id="contener">
+    <p>
+        @Html.ValidationMessage("Informacja")
+    </p>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-style-10">
+            @Html.Label("Temat: ")
+            @Html.TextBox("topic", null, new { @class = "textboxCSS" })
+            @Html.Label("Tresc: ")
+            @Html.TextArea("message", null, new { @class = "textboxCSS", style = "height:100px" })
+
+            <input type="submit" name="name" value="Wyslij" />
+        </div>
+    }
+</div>
