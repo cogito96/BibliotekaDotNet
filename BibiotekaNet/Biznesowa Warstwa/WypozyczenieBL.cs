@@ -45,9 +45,54 @@ namespace BibiotekaNet.Biznesowa_Warstwa
             wypozyczenie.DataWypozyczenia = DateTime.Today.Date;
             wypozyczenie.EgzemplarzID = egzemplarz.EgzemplarzID;
             wypozyczenie.DataZwrotu = DateTime.Today.AddDays(10);
-            wypozyczenie.StatusWypozyczenia = WypozyczenieStatusWypozyczeniaEnum.W_TRAKCIE.ToString();
+            wypozyczenie.StatusWypozyczenia = WypozyczenieStatusWypozyczeniaEnum.CZEKA_NA_ODBIOR.ToString();
             return wypozyczenie;
         }
+
+
+
+
+
+        public List<WypozyczenieEM> GetListaKsiazekDoOddania(KlientEM klient)
+        {
+            List<WypozyczenieEM> listKsiazekKlientaEM = new List<WypozyczenieEM>();
+            DBKontekst db = new DBKontekst();
+            var listKsiazekKlienta = klient.WypożyczeniaKlienta.Where(w => w.StatusWypozyczenia.Equals(WypozyczenieStatusWypozyczeniaEnum.U_KLIENTA.ToString())).ToList();
+            listKsiazekKlienta.ForEach(x => { listKsiazekKlientaEM.Add(new WypozyczenieEM(x)); });
+            return listKsiazekKlientaEM;
+        }
+        public List<WypozyczenieEM> GetListaKsiazekDoOdbioru(KlientEM klient)
+        {
+            List<WypozyczenieEM> listKsiazekKlientaEM = new List<WypozyczenieEM>();
+            DBKontekst db = new DBKontekst();
+            var listKsiazekKlienta = klient.WypożyczeniaKlienta.Where(w => w.StatusWypozyczenia.Equals(WypozyczenieStatusWypozyczeniaEnum.CZEKA_NA_ODBIOR.ToString())).ToList();
+            listKsiazekKlienta.ForEach(x => { listKsiazekKlientaEM.Add(new WypozyczenieEM(x)); });
+            return listKsiazekKlientaEM;
+        }
+
+
+
+
+        public void WypozyczKsiazeke(int idWypozyczenia)
+        {
+            DBKontekst db = new DBKontekst();
+            Wypozyczenie wypozyczenie = db.Wypozyczenia.Find(idWypozyczenia);
+            wypozyczenie.Egzemplarz.StanKsiazki = EgzemplarzStanKsiazkiEnum.WYPOZYCZONA.ToString();
+            wypozyczenie.StatusWypozyczenia = WypozyczenieStatusWypozyczeniaEnum.U_KLIENTA.ToString();
+            db.SaveChanges();
+        }
+
+        public void ZwrotWypozyczonychKsiazek(int idWypozyczenia)
+        {
+            DBKontekst db = new DBKontekst();
+            Wypozyczenie wypozyczenie = db.Wypozyczenia.Find(idWypozyczenia);
+            wypozyczenie.Egzemplarz.StanKsiazki = EgzemplarzStanKsiazkiEnum.MAGAZYN.ToString() ;
+            wypozyczenie.StatusWypozyczenia = WypozyczenieStatusWypozyczeniaEnum.ZREALIZOWANO.ToString();
+            db.SaveChanges();
+        }
+
+
+
     }
 
 

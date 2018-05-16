@@ -96,3 +96,4 @@ C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.Migrat
 C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.csproj.GenerateResource.cache
 C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.Migrations.aa.resources
 C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.csprojResolveAssemblyReference.cache
+C:\Users\aa\source\repos\BibiotekaNet\BibiotekaNet\obj\Debug\BibiotekaNet.Migrations.aa1.resources

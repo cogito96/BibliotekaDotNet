@@ -18,7 +18,7 @@ namespace BibiotekaNet.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Jesteśmy biblioteka, możesz zarezerwować u nas ksiązkę, a po odbiór zapraszamy do oddziału na ulicy xxxxxxx";
+            ViewBag.Message = "Witaj na stronie, możesz zarezerwować u nas ksiązkę, a po odbiór zapraszamy do oddziału na ulicy xxxxxxx";
 
             return View();
         }
@@ -28,6 +28,7 @@ namespace BibiotekaNet.Controllers
             ViewBag.Message = "Strona kontaktowa";
             return View();
         }
+
 
         public ActionResult BazaKsiazek()
         {
@@ -86,7 +87,5 @@ namespace BibiotekaNet.Controllers
             ModelState.AddModelError("Informacja", "Bład, uzupełnij wszystkie pola");
             return View();
         }
-
-
     }
 }

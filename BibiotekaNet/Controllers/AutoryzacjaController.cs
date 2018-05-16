@@ -31,6 +31,7 @@ namespace BibiotekaNet.Controllers
             if (appBL.isValidAutoryzacja(vm.login, vm.haslo, vm.typUzytkownika))
             {
                 appBL.Zaloguj(vm);
+                TempData["Informacja"] = "Witaj na stronie " + vm.login;
                 return ReturnUrl != null ? Redirect(ReturnUrl) : Redirect("Index");
             }
 
@@ -40,8 +41,11 @@ namespace BibiotekaNet.Controllers
 
         public ActionResult Logout()
         {
+            KoszykBL koszykBL = new KoszykBL();
+            koszykBL.OproznijKosz();
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Autoryzacja");
+            TempData["Informacja"] = "Miło było Cię gościć";
+            return RedirectToAction("Index");
         }
     }
 }

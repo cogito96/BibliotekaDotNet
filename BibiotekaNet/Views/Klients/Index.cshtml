@@ -39,9 +39,6 @@
         <th>
             @Html.DisplayName("PESEL")
         </th>
-        <th>
-            @Html.DisplayName("Potwierdzenie rejestracji")
-        </th>
     </tr>
 
 @foreach (var item in Model.listaKlientow) {
@@ -72,9 +69,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PESEL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PotwierdzenieRejestracji)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.KlientID }) |

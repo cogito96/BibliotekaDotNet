@@ -14,8 +14,7 @@
     <div class="form-horizontal">
         <h4>Klient</h4>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "
-        " })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.klient.ImieKlienta, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -85,16 +84,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.klient.PESEL, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.klient.PESEL, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.klient.PotwierdzenieRejestracji, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.klient.PotwierdzenieRejestracji)
-                    @Html.ValidationMessageFor(model => model.klient.PotwierdzenieRejestracji, "", new { @class = "text-danger" })
-                </div>
             </div>
         </div>
 

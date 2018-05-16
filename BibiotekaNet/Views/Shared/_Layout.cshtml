@@ -17,16 +17,27 @@
             
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("StronaGlowna", "Index", "Home")</li>
+                    <li>@Html.ActionLink("O nas", "About", "Home")</li>
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                     @{
                         if (Request.IsAuthenticated)
                         {
+                            if(Session["TypUzytkownika"] != null)
+                            {
+                                if (Session["TypUzytkownika"].ToString().Equals("PRACOWNIK"))
+                            {
                             <li><a href="@Url.Action("Index", "Pracownik")"><span class="glyphicon glyphicon-wrench">ZarzadzajBiblioteka</span> </a></li>
+                            }
+                            else
+                            {
+                            <li><a href="@Url.Action("Index", "Wypozyczenie")"><span>Historia Wypozyczen</span> </a></li>
                             <li><a href="@Url.Action("Index", "Koszyk")"><span class="glyphicon glyphicon-shopping-cart">@HttpContext.Current.User.Identity.Name</span> </a></li>
+                            
+                            }
+                            }
                             <li><a href="@Url.Action("Logout", "Autoryzacja")"><span class="glyphicon glyphicon-log-out">WylogujSie</span> </a></li>
                         }
                         else

@@ -172,6 +172,10 @@
     <Compile Include="Migrations\201805131112571_aa.Designer.cs">
       <DependentUpon>201805131112571_aa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805161325494_aa1.cs" />
+    <Compile Include="Migrations\201805161325494_aa1.Designer.cs">
+      <DependentUpon>201805161325494_aa1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DBKontekst.cs" />
     <Compile Include="Models\Egzemplarz.cs" />
@@ -203,6 +207,7 @@
     <Compile Include="ViewModel\Ksiazka\IndexKsiazkaVM.cs" />
     <Compile Include="ViewModel\Ksiazka\DodajKsiazkeVM.cs" />
     <Compile Include="ViewModel\Ksiazka\SzczegolyKsiazkaVM.cs" />
+    <Compile Include="ViewModel\Pracownik\ListaKsiazekKlientaVM.cs" />
     <Compile Include="ViewModel\Wypozyczenie\KlientWpozyczenieVM.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +271,10 @@
     <Content Include="Views\Home\SzczególyKsiazki.cshtml" />
     <Content Include="Views\Home\WyslijWiadomosc.cshtml" />
     <Content Include="Views\Koszyk\Index.cshtml" />
+    <Content Include="Views\Pracownik\PanelZarzadzajWypozyczeniami.cshtml" />
+    <Content Include="Views\Pracownik\ListaKsiazekDoOddaniaKlienta.cshtml" />
+    <Content Include="Views\Pracownik\ListaKsiazekDoOdbioruKlienta.cshtml" />
+    <Content Include="Views\Home\StartowaStrona.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805081833250_baza danych.resx">
@@ -273,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805131112571_aa.resx">
       <DependentUpon>201805131112571_aa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805161325494_aa1.resx">
+      <DependentUpon>201805161325494_aa1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

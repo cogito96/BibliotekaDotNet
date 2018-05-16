@@ -7,6 +7,6 @@ namespace BibiotekaNet.Models
 {
     public enum WypozyczenieStatusWypozyczeniaEnum
     {
-        W_TRAKCIE, ZREALIZOWANO
+        CZEKA_NA_ODBIOR, ZREALIZOWANO, U_KLIENTA
     }
 }

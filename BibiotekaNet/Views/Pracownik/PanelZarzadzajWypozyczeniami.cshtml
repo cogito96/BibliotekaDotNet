@@ -1,0 +1,61 @@
+﻿@model BibiotekaNet.ViewModel.Klient.IndexKlientVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Imie")
+        </th>
+        <th>
+            @Html.DisplayName("Nazawisko")
+        </th>
+        <th>
+            @Html.DisplayName("Miasto")
+        </th>
+        <th>
+            @Html.DisplayName("Ulica")
+        </th>
+        <th>
+            @Html.DisplayName("PESEL")
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model.listaKlientow)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImieKlienta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazwiskoKlienta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiastoKlienta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UlicaKlienta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PESEL)
+            </td>
+            <td>
+                @Html.ActionLink("Wypozycz", "ListaKsiazekDoOdbioruKlienta", new { id = item.KlientID }) |
+                @Html.ActionLink("Zdaj", "ListaKsiazekDoOddaniaKlienta", new { id = item.KlientID }) |
+                <a href=@Url.Action("Index","Wypozyczenie", new { id = item.KlientID })>Historia wypozyczen</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Powrot", "Index", "Pracownik")
+</p>

@@ -1,0 +1,31 @@
+﻿@model BibiotekaNet.ViewModel.Pracownik.ListaKsiazekKlientaVM
+@{
+    ViewBag.Title = "ListaKsiazekDoOddaniaKlienta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Zwroc ksiazki klienta: @Model.ImieKlienta @Model.NazwiskoKlienta</h2>
+
+
+
+<p style="color:green">
+    @TempData["Informacja"]
+    </p>
+    <table class="table">
+
+        @foreach (var item in Model.listaWypozyczenKlienta)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Egzemplarz.Ksiazka.ImieAutor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Egzemplarz.Ksiazka.NazwaKategorii)
+                </td>
+                <td>
+                    @Html.ActionLink("Zwroc", "ZwrocKsiazke", new { id = item.WypozyczenieID, klienID = item.KlientID})
+                </td>
+            </tr>
+        }
+    </table>
+

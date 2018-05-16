@@ -4,4 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@HttpContext.Current.User.Identity.Name Witaj na stronie biblioteki"</h2>
+<h1>
+    @TempData["Informacja"];
+</h1>

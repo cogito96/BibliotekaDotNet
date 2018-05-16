@@ -13,15 +13,17 @@ namespace BibiotekaNet.ViewModel.Wypozyczenie
         {
             get
             {
-                if (this.wypozyczenie.StatusWypozyczenia == WypozyczenieStatusWypozyczeniaEnum.W_TRAKCIE.ToString())
+                if (this.wypozyczenie.StatusWypozyczenia == WypozyczenieStatusWypozyczeniaEnum.CZEKA_NA_ODBIOR.ToString())
                 {
                     return kolorStatusWypozyczenia = "yellow";
                 }
                 //  else if (this.wypozyczenie.StatusWypozyczenia == WypozyczenieStatusWypozyczeniaEnum.ZREALIZOWANO.ToString())
-                else
-                { 
-                    return kolorStatusWypozyczenia = "green";
+                else if (this.wypozyczenie.StatusWypozyczenia == WypozyczenieStatusWypozyczeniaEnum.U_KLIENTA.ToString())
+                {
+                    return kolorStatusWypozyczenia = "white";
                 }
+                else
+                    return kolorStatusWypozyczenia = "green";
             }
             set { }
         }

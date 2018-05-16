@@ -21,6 +21,7 @@ namespace BibiotekaNet.Models
             HasloKlienta = klient.HasloKlienta;
             PESEL = klient.PESEL;
             PotwierdzenieRejestracji = klient.PotwierdzenieRejestracji;
+            WypożyczeniaKlienta = klient.WypożyczeniaKlienta;
         }
     }
 }
